@@ -9,9 +9,17 @@ db.execute('''CREATE TABLE IF NOT EXISTS users(
            count INTEGER,
            status TEXT
 )''')
+# db.execute('''CREATE TABLE IF NOT EXISTS role(
+#            id INTEGER PRIMARY KEY,
+#            status TEXT,
+#            price INTEGER
+# )''')
 sql.commit()
 
 table_name = config.table_name
+
+def set_table(name: str):
+    table_name = name
 
 def add_to_db(id: int, count=0, status="user"):
     db.execute(f"INSERT OR IGNORE INTO {table_name} (id, count, status) VALUES (?, ?, ?)", (id, count, status))

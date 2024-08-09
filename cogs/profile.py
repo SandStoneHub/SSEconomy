@@ -27,7 +27,7 @@ class Profile(commands.Cog):
             description=f"""
             Никнейм: `{username}`
 
-            id: **{user_id}**
+            id: ||**{user_id}**||
 
             Баланс: **{balance}** Камушек
             """,
