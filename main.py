@@ -35,18 +35,6 @@ async def on_member_join(member):
     if member.bot: return
     add_to_db(member.id)
 
-@bot.listen("on_message")
-async def on_message(message):
-    user = message.author
-    user_id = user.id
-
-    if user.bot: return
-
-    if message.channel.id in config.msg_channl:
-        balance = select_from_db(user_id, "count")
-        count = random.randint(1, 3)
-        update_in_db(user_id, "count", balance+count)
-
 # if platform.system() != "Windows": TOKEN = config.TOKEN
 bot.loop.create_task(add_count_to_user(bot))
 bot.run(TOKEN)
