@@ -14,6 +14,8 @@ class Shop(commands.Cog):
         user_id = ctx.author.id
 
         status = select_from_db(user_id, "status")
+        balance = int(select_from_db(user_id, "count"))
+
         if status == "ban":
             reason = select_from_db(user_id, "reason")
             await ctx.send(f"⛔ Ваш аккаунт заблокирован! Для разблокировки обратитесь в поддержку\nПричина: ||{reason}||", ephemeral=True)
@@ -21,6 +23,7 @@ class Shop(commands.Cog):
 
         embed = disnake.Embed(
             title=f"Магазин ролей",
+            description=f"Ваш баланс: **{balance}** камушек",
             color=config.embed_color  
         )
 

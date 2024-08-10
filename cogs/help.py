@@ -25,6 +25,8 @@ class Help(commands.Cog):
 `/pay` — Перевести камушки
 `/shop` — Магазин ролей
 `/admin` — Админ панель
+
+*Текущая версия бота: **{config.ver}** *
                 """,
                 color=config.embed_color  
             )
@@ -45,6 +47,8 @@ class Help(commands.Cog):
 `/profile` — Профиль в боте
 `/pay` — Перевести камушки
 `/shop` — Магазин ролей
+
+*Текущая версия бота: **{config.ver}**  *
                 """,
                 color=config.embed_color  
             )
