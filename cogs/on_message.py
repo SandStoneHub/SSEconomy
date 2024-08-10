@@ -1,5 +1,6 @@
 import disnake
 import config
+import random
 from disnake.ext import commands
 from database.sql import select_from_db, update_in_db
 
@@ -18,7 +19,7 @@ class OnMessage(commands.Cog):
 
         if message.channel.id in config.msg_channl:
             balance = select_from_db(user_id, "count")
-            count = 1
+            count = random.randint(1, 2)
             update_in_db(user_id, "count", balance+count)
             
 def setup(bot):

@@ -19,4 +19,4 @@ async def add_count_to_user(bot):
                     count = random.randint(1, 3)
                     update_in_db(user_id, "count", balance+count)
                 
-        await asyncio.sleep(60)
+        await asyncio.sleep(30)

@@ -1,2 +1,3 @@
+database/base.db
 *.pyc
 __pycache__/
