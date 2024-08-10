@@ -4,8 +4,7 @@ from disnake import Activity, ActivityType
 import os
 import config
 import platform
-import random
-from database.sql import select_from_db, add_to_db, update_in_db
+from database.sql import add_to_db
 from voice_farm import add_count_to_user
 
 intents = disnake.Intents.default()

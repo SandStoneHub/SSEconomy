@@ -28,7 +28,7 @@ class Help(commands.Cog):
                 """,
                 color=config.embed_color  
             )
-            await ctx.send(embed=embed, ephemeral=True)
+            await ctx.send(embed=embed)
         else:
             embed = disnake.Embed(
                 title=f"SSEconomy",
@@ -48,7 +48,7 @@ class Help(commands.Cog):
                 """,
                 color=config.embed_color  
             )
-            await ctx.send(embed=embed, ephemeral=True)
+            await ctx.send(embed=embed)
             
 def setup(bot):
     bot.add_cog(Help(bot))

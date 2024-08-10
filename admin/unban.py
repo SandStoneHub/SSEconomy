@@ -17,14 +17,14 @@ class Unban(disnake.ui.Modal):
                 max_length=50,
             )
         ]
-        super().__init__(title="Забанить пользователя", components=components)
+        super().__init__(title="Разблокировать пользователя", components=components)
 
     async def callback(self, inter: disnake.ModalInteraction):
 
         user_id = ""
 
         embed = disnake.Embed(
-            title="Забанен пользователь",
+            title="Разблокирован пользователь",
             color=config.embed_color
         )
 
@@ -65,4 +65,8 @@ class Unban(disnake.ui.Modal):
         update_in_db(user_id, "status", "user")
 
         await inter.response.send_message(embed=embed, ephemeral=True)
+
+        user = guild.get_member(user_id)
+        await user.send("✅ Ваш аккаунт разблокирован")
+
         await discord_log(self.bot, f"{inter.author.mention} Разблокировал аккаунт <@{user_id}>")

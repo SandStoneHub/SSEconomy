@@ -13,7 +13,9 @@ class OnMessage(commands.Cog):
         user = message.author
         user_id = user.id
 
-        if user.bot: return
+        status = select_from_db(user_id, "status")
+
+        if status == "ban" or user.bot: return
 
         if message.channel.id in config.msg_channl:
             balance = select_from_db(user_id, "count")

@@ -20,7 +20,7 @@ class AddMoney(disnake.ui.Modal):
                 label="Пополнить баланс",
                 placeholder="Введите кол-во для пополнения баланса",
                 custom_id="count",
-                style=TextInputStyle.paragraph,
+                style=TextInputStyle.short,
                 max_length=7,
             ),
         ]

@@ -20,7 +20,7 @@ class DelMoney(disnake.ui.Modal):
                 label="Вычесть с баланса",
                 placeholder="Введите кол-во чтобы вычесть с баланса",
                 custom_id="count",
-                style=TextInputStyle.paragraph,
+                style=TextInputStyle.short,
                 max_length=7,
             ),
         ]

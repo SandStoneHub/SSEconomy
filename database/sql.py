@@ -7,22 +7,20 @@ db = sql.cursor()
 db.execute('''CREATE TABLE IF NOT EXISTS users(
            id INTEGER PRIMARY KEY, 
            count INTEGER,
-           status TEXT
+           status TEXT,
+           reason TEXT
 )''')
-# db.execute('''CREATE TABLE IF NOT EXISTS role(
-#            id INTEGER PRIMARY KEY,
-#            status TEXT,
-#            price INTEGER
-# )''')
+db.execute('''CREATE TABLE IF NOT EXISTS roles(
+           id INTEGER PRIMARY KEY,
+           price INTEGER,
+           name TEXT
+)''')
 sql.commit()
 
 table_name = config.table_name
 
-def set_table(name: str):
-    table_name = name
-
-def add_to_db(id: int, count=0, status="user"):
-    db.execute(f"INSERT OR IGNORE INTO {table_name} (id, count, status) VALUES (?, ?, ?)", (id, count, status))
+def add_to_db(id: int, count=0, status="user", reason=None):
+    db.execute(f"INSERT OR IGNORE INTO {table_name} (id, count, status, reason) VALUES (?, ?, ?, ?)", (id, count, status, reason))
     sql.commit()
 
 def select_from_db(id: int, obj: str):
@@ -30,6 +28,19 @@ def select_from_db(id: int, obj: str):
     
     db.execute(f"SELECT {obj} FROM {table_name} WHERE id = ?", (id,))   
     value = db.fetchone()[0]
+
+    return value
+
+
+def select_ban_list():
+    db.execute(f"SELECT id FROM users WHERE status = 'ban'")   
+    value = db.fetchall()
+
+    return value
+
+def select_all_from_db(table: str):
+    db.execute(f"SELECT * FROM {table}")   
+    value = db.fetchall()
 
     return value
 
