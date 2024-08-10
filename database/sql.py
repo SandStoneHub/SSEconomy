@@ -1,7 +1,12 @@
 import sqlite3
 import config
+import platform
 
-sql = sqlite3.connect(config.db_path, check_same_thread=False)
+db_path = config.db_path
+
+if platform.system() != "Windows": db_path = config.db_path_ubu
+
+sql = sqlite3.connect(db_path, check_same_thread=False)
 db = sql.cursor()
 
 db.execute('''CREATE TABLE IF NOT EXISTS users(

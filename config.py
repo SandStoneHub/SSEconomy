@@ -8,10 +8,10 @@ log_channel = 1271053713385066511
 embed_color = 0x289635
 
 cogs_path = "cogs"
-cogs_path_ubu = ""
+cogs_path_ubu = "/root/bot/SSEconomy/cogs"
 
 db_path = "database/base.db"
-db_path_ubu = ""
+db_path_ubu = "/root/bot/SSEconomy/database/base.db"
 table_name = "users"
 
 # user == author

@@ -51,8 +51,8 @@ class Shop(commands.Cog):
             role_to_add = guild.get_role(role[0])
 
             if role_to_add in user.roles:
-                await interaction.response.send_message(f"{user.mention} Вы уже преобрели роль **{role[2]}**!", ephemeral=True)
-                await discord_log(self.bot, f"{user.mention} Пытался преобрести роль **{role[2]}**")
+                await interaction.response.send_message(f"{user.mention} Вы уже приобрели роль **{role[2]}**!", ephemeral=True)
+                await discord_log(self.bot, f"{user.mention} Пытался приобрести роль **{role[2]}**")
                 return
             
             balance = int(select_from_db(user_id, "count"))
@@ -60,14 +60,14 @@ class Shop(commands.Cog):
 
             if balance < role_price:
                 await interaction.response.send_message(f"{user.mention} Недостаточно средст", ephemeral=True)
-                await discord_log(self.bot, f"{user.mention} Пытался преобрести роль **{role[2]}**")
+                await discord_log(self.bot, f"{user.mention} Пытался приобрести роль **{role[2]}**")
                 return
 
             update_in_db(user_id, "count", balance-role_price)
             
             await user.add_roles(role_to_add)
-            await interaction.response.send_message(f"{user.mention} Успешно преобрел роль **{role[2]}**!")
-            await discord_log(self.bot, f"{user.mention} Преобрел роль **{role[2]}**")
+            await interaction.response.send_message(f"{user.mention} Успешно приобрел роль **{role[2]}**!")
+            await discord_log(self.bot, f"{user.mention} Приобрел роль **{role[2]}**")
             
 def setup(bot):
     bot.add_cog(Shop(bot))
