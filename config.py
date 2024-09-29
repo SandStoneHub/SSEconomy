@@ -1,4 +1,4 @@
-TOKEN = "MTI3MTE0OTMzMjQwMTQ4Nzg5Mg.GwX9TR._FVe6Uqe3q1TcG0lmAEBKHRtCgz9WnyjS0COzk"
+TOKEN = ""
 TOKEN_TEST = ""
 
 ver = "1.0.1"
